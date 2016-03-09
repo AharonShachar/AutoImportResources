@@ -203,7 +203,7 @@ ApiSession = CloudShellAPISession("localhost", "admin", "admin", "Global")
 manager = CloudShellManager(ApiSession)
 
 
-with open('C:\\Users\\aharon.s\\Dropbox\\\QualiSystems\\Python\\Resources.csv') as csvfile:
+with open('C:\\Resources.csv') as csvfile:
     spamreader = csv.reader(csvfile, delimiter=',', quotechar='\n')
 
     #manager.countRows = sum(1 for row in spamreader)
