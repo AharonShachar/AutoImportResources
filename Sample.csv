@@ -1,0 +1,10 @@
+Parent,Description,Name,ResourceFamilyName,ResourceModelName,FolderFullPath,Address,Location,Vendor,Gateway,Duplex,Speed
+,description,MyAccess,Access,ALU ADSL,LabA/room-C,199.999.777,,Huawei,,,
+MyAccess,,Port1,Generic Port,Generic Ethernet Port,not relevant,1,,,,,1 Gbps
+MyAccess,,Port2,Generic Port,Generic Ethernet Port,,2,,,,Half,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,GW description,myGateWay,Gateway,Gateway Generic Model,Lab_B/room_A,12.23.3.2,RoshPina,,,,
+myGateWay,nas gateway,myBlade,Generic Blade,Generic Blade Model,not relevant,1,,,,,
+myGateWay\myBlade,,p1,Generic Port,Generic Ethernet Port,,1,,,,Half,1 Gbps
+myGateWay\myBlade,,p2,Generic Port,Generic Ethernet Port,,1,,,,Half,1 Gbps
