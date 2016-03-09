@@ -7,13 +7,13 @@ CloudShell 6.4 and up
 
 Before using:
 
-The script do not creates resource families/models & the attributes associations – that should be done before running the script in Resource Manager.
+The script does not create resource families/models & the attribute associations – that should be done before running the script in Resource Manager.
 
 #How to use (alpha):
 
 1.	Prepare your CSV file according to the following instructions (as well please see the attached Sample.csv):
 
-	a.	The file headers must has the following 6 headers: Parent, Description, Name, ResourceFamilyName, ResourceModelName, FolderFullPath, Address
+	a.	The file headers must have the following 6 headers: Parent, Description, Name, ResourceFamilyName, ResourceModelName, FolderFullPath, Address
 	
 	b.	Attributes will be added in the 7th  and above.
 
@@ -21,7 +21,7 @@ The script do not creates resource families/models & the attributes associations
 	
 	d.	Sub resources – should have parent value – this value should be the full parent path – please see line No.9 in the Sample.csv file.
 
-	e.	Attributes – in order to associate attribute with resource - make sure the attribute is added to the resource model In the Resource Manager. application
+	e.	Attributes – in order to associate attributes with a resource - make sure the attribute is added to the resource model In the Resource Manager application.
 	
 	f.	In the resource line set the attribute value under the relevant attribute header,  if the attribute header is missing – add it.
 
@@ -31,7 +31,7 @@ The script do not creates resource families/models & the attributes associations
 
 4.	Set the CSV path: line 206: with open('C:\\Resources.csv') as csvfile:
 
-5.	Run the script – look on the console to see the results.
+5.	Run the script – look at the console to see the results.
 
 
 
