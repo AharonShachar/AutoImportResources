@@ -204,11 +204,9 @@ manager = CloudShellManager(ApiSession)
 
 
 with open('C:\\Resources.csv') as csvfile:
-    spamreader = csv.reader(csvfile, delimiter=',', quotechar='\n')
+    csvReader = csv.reader(csvfile, delimiter=',', quotechar='\n')
 
-    #manager.countRows = sum(1 for row in spamreader)
-
-    for row in spamreader:
+    for row in csvReader:
         parent = row[ParentColumn]
         name = row[ResourceNameColumn]
         folder = row[FolderColumn].decode('unicode_escape')
