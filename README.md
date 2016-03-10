@@ -1,4 +1,4 @@
-# AutoImportResources
+# Auto Import Resources
 Import resources from CSV  file to CloudShell server
 
 Pre-requisite:
