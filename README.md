@@ -3,11 +3,11 @@ Import resources from CSV  file to CloudShell server
 
 Pre-requisite:
 
-CloudShell 6.4 and up
+	CloudShell 6.4 and up
 
 Before using:
 
-The script does not create resource families/models & the attribute associations – that should be done before running the script in Resource Manager.
+	The script does not create resource families/models & the attribute associations – that should be done before running the 	script in Resource Manager.
 
 #How to use (alpha):
 
