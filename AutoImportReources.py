@@ -196,7 +196,7 @@ ApiSession = api.CloudShellAPISession('localhost','admin','admin','Global')
 
 manager = CloudShellManager(ApiSession)
 
-with open('C:\\Users\\aharon.s\\Dropbox\\QualiSystems\\Python\\AutoImportResources\\Resources.csv') as csvfile:
+with open('C:\\Resources.csv') as csvfile:
     csvReader = csv.reader(csvfile, delimiter=',', quotechar='\n')
 
     for row in csvReader:
