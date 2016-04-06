@@ -1,9 +1,8 @@
 __author__ = 'Aharon.S'
-import os
 import csv
-from qualipy.api.cloudshell_api import *
 import HTMLParser
 import  xml.etree.ElementTree as ET
+import cloudshell.api.cloudshell_api as api
 
 
 
@@ -29,20 +28,15 @@ class CloudShellManager:
         self.countAttributeKeys = 0
         self.countRows = 0
 
-        #filename = "C:\\Users\\aharon.s\\Desktop\\system.xml"
-        #file_object = open(filename, "r")
-        #self.Tree = ET.fromstring( file_object.read())
-
         xmlres = session.ExportFamiliesAndModels()
-        xmlres = HTMLParser.HTMLParser().unescape(xmlres)
+       # xmlres = HTMLParser.HTMLParser().unescape(xmlres)
+       #  appendixNnodelocation = xmlres.index('<ResourceManagementExportImport')
+       #  xmlres = xmlres.replace(xmlres[0:appendixNnodelocation],'',appendixNnodelocation)
+       #  suffixNnodelocation = xmlres.index('</Configuration></ResponseInfo></Response>')
+       #  xmlres = xmlres.replace(xmlres[suffixNnodelocation: len(xmlres)],'',len(xmlres))
 
-        appendixNnodelocation = xmlres.index('<ResourceManagementExportImport')
-        xmlres = xmlres.replace(xmlres[0:appendixNnodelocation],'',appendixNnodelocation)
+        self.Tree = ET.fromstring(xmlres.Configuration)
 
-        suffixNnodelocation = xmlres.index('</Configuration></ResponseInfo></Response>')
-        xmlres = xmlres.replace(xmlres[suffixNnodelocation: len(xmlres)],'',len(xmlres))
-
-        self.Tree = ET.fromstring(xmlres)
 
     def IslegalResource(self, row):
         res = True
@@ -125,7 +119,7 @@ class CloudShellManager:
                 self.session.CreateResource(family, model, name, address, folder, parent, description)
                 print("Resource: '"+name+"' added successfully" )
 
-        except CloudShellAPIError as error:
+        except Exception as error:
             print "Error creating resource: '"+name+"'. "+error.message
 
     def AddAttributes(self, row):
@@ -152,7 +146,7 @@ class CloudShellManager:
                 self.SetAttributes(row)
                 #print('Attributes for resource: '+ name +' added successfully.' )
 
-        except CloudShellAPIError as error:
+        except Exception as error:
             print "Error set resource attributes, resource name: '"+ name +"'. "+ error.message
 
     def SetAttributes(self, row):
@@ -198,12 +192,11 @@ class CloudShellManager:
         return res
 
 
+ApiSession = api.CloudShellAPISession('localhost','admin','admin','Global')
 
-ApiSession = CloudShellAPISession("localhost", "admin", "admin", "Global")
 manager = CloudShellManager(ApiSession)
 
-
-with open('C:\\Resources.csv') as csvfile:
+with open('C:\\Users\\aharon.s\\Dropbox\\QualiSystems\\Python\\AutoImportResources\\Resources.csv') as csvfile:
     csvReader = csv.reader(csvfile, delimiter=',', quotechar='\n')
 
     for row in csvReader:
@@ -224,5 +217,5 @@ with open('C:\\Resources.csv') as csvfile:
                     manager.AddResource(row)
                     manager.AddAttributes(row)
 
-        except CloudShellAPIError as error:
+        except Exception as error:
             print "Error in CSV row entry: '"  + ', '.join(row) +". "+ error.message
